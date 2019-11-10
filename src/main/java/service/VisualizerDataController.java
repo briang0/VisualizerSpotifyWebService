@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.LinkedList;
 
 @RestController
 public class VisualizerDataController {
@@ -54,6 +56,23 @@ public class VisualizerDataController {
             e.printStackTrace();
             return e.getMessage();
         }
+    }
+
+    @RequestMapping(value = "/getSong", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public String getSong() throws IOException, SpotifyWebApiException {
+        checkAuthorization();
+        String body;
+        body = client.getCurrentPlayingSong();
+
+        return body;
+    }
+
+    @RequestMapping(value = "/getCurrentlyPlayedSongInformation", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public LinkedList<HashMap<String, String>>  getCurrentlyPlayedSongInformation() throws IOException, SpotifyWebApiException {
+        checkAuthorization();
+        LinkedList<HashMap<String, String>> body = client.getCurrentlyPlayedSongInformation();
+
+        return body;
     }
 
 }

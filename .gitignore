@@ -1,4 +1,4 @@
 *.idea*
 *.gradle*
-secrets.txt
+*secrets.txt
 *Authorization.java
