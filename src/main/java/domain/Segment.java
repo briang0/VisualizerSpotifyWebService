@@ -18,7 +18,7 @@ public class Segment {
         this.confidence = confidence;
         this.loudnessStart = loudness_start;
         this.loudnessMaxTime = loudness_max;
-        this.loudnessMaxTime = loudness_max_time;
+        this.loudnessMax = loudness_max_time;
         this.pitches = pitches;
         this.timbre = timbre;
     }
